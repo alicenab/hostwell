@@ -1,49 +1,41 @@
 export interface Region {
   id: string;
   name: string;
-  coordinates: { x: number; y: number };
   description: string;
   image: string;
-  hosts: Host[];
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
 }
 
 export interface AvailableHome {
   id: string;
-  title: string;
+  type: string;
   description: string;
-  images: string[];
-  pricePerNight: number;
+  price: number;
   maxGuests: number;
   bedrooms: number;
   bathrooms: number;
   amenities: string[];
-  availableDates: {
-    from: string;
-    to: string;
-  }[];
+  images: string[];
 }
 
 export interface Host {
   id: string;
   name: string;
   image: string;
-  bio: string;
   location: string;
+  bio: string;
+  email: string;
+  phone: string;
   regionId: string;
-  pricePerNight: number;
   rating: number;
-  availableHomes: AvailableHome[];
+  reviews: number;
+  pricePerNight: number;
   availableFrom: string;
   availableTo: string;
-  accommodationType: string;
-  amenities: string[];
-  languages: string[];
-  education: {
-    university: string;
-    degree: string;
-    year: number;
-  };
-  reviews: Review[];
+  availableHomes: AvailableHome[];
 }
 
 export interface Recommendation {
@@ -64,4 +56,17 @@ export interface Review {
   rating: number;
   comment: string;
   date: string;
+}
+
+export interface Booking {
+  id: string;
+  hostId: string;
+  guestId: string;
+  homeId: string;
+  checkIn: string;
+  checkOut: string;
+  guests: number;
+  totalPrice: number;
+  status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
+  createdAt: string;
 } 

@@ -136,16 +136,22 @@ const GuestPage: React.FC = () => {
                   className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
                   onClick={() => navigate(`/host/${host.id}`)}
                 >
-                  <div className="aspect-w-16 aspect-h-9">
+                  <div className="relative h-48">
                     <img
                       src={host.image}
                       alt={host.name}
                       className="w-full h-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4 text-white">
+                      <h3 className="text-xl font-semibold">{host.name}</h3>
+                      <div className="flex items-center text-sm">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        <span>{host.location}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{host.name}</h3>
-                    <p className="text-gray-600 mb-4">{host.location}</p>
+                  <div className="p-4">
                     <div className="flex items-center justify-between">
                       <span className="text-primary-600 font-semibold">
                         From ${host.pricePerNight}/night
