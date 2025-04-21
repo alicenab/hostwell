@@ -105,7 +105,7 @@ export const recommendations: Recommendation[] = [
     name: 'Icherisheher (Old City)',
     description: 'UNESCO World Heritage site with Maiden Tower, Shirvanshahs\' Palace, and historic streets.',
     priceRange: '$',
-    image: 'https://images.pexels.com/photos/3879071/pexels-photo-3879071.jpeg'
+    image: 'https://images.pexels.com/photos/3290075/pexels-photo-3290075.jpeg'
   },
   {
     id: '12',
@@ -114,7 +114,7 @@ export const recommendations: Recommendation[] = [
     name: 'Bolt',
     description: 'Popular ride-sharing service with convenient mobile app booking and affordable rates.',
     priceRange: '$',
-    image: 'https://images.pexels.com/photos/5622520/pexels-photo-5622520.jpeg'
+    image: 'https://images.pexels.com/photos/2224422/pexels-photo-2224422.jpeg'
   },
   
   // Ganja recommendations

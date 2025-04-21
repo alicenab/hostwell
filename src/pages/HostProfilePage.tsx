@@ -90,6 +90,7 @@ const HostProfilePage: React.FC = () => {
                     src={host.image} 
                     alt={host.name} 
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-70"></div>
                   <div className="absolute bottom-0 left-0 p-6 text-white">
@@ -127,7 +128,7 @@ const HostProfilePage: React.FC = () => {
                         key={home.id}
                         className={`bg-white rounded-lg border ${
                           selectedHome === home.id ? 'border-primary-500' : 'border-gray-200'
-                        } overflow-hidden transition-all duration-300`}
+                        } overflow-hidden transition-all duration-200 hover:shadow-md`}
                       >
                         <div className="md:flex">
                           <div className="md:w-1/3">
@@ -135,6 +136,7 @@ const HostProfilePage: React.FC = () => {
                               src={home.images[0]} 
                               alt={home.type}
                               className="w-full h-48 object-cover"
+                              loading="lazy"
                             />
                           </div>
                           <div className="p-4 md:w-2/3">
@@ -173,7 +175,7 @@ const HostProfilePage: React.FC = () => {
                             
                             <button
                               onClick={() => setSelectedHome(home.id)}
-                              className="btn btn-primary w-full"
+                              className="btn btn-primary w-full transition-transform hover:scale-[1.02] active:scale-[0.98]"
                             >
                               Book Now
                             </button>

@@ -126,9 +126,9 @@ export const hosts: Host[] = [
         price: 85,
         description: 'Stylish apartment in the heart of Baku, close to major attractions and nightlife.',
         images: [
-          'https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg',
-          'https://images.pexels.com/photos/1643385/pexels-photo-1643385.jpeg',
-          'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg'
+          'https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg',
+          'https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg',
+          'https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg'
         ],
         amenities: ['Wi-Fi', 'Kitchen', 'Gym', 'Pool'],
         maxGuests: 4,

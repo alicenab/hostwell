@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, User, LogIn, Home, Info, MessageSquare } from 'lucide-react';
 import Header from './Header';
@@ -14,14 +14,29 @@ const Layout: React.FC<LayoutProps> = ({ children, fullHeight = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+  const debounce = (func: Function, wait: number) => {
+    let timeout: number;
+    return function executedFunction(...args: any[]) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = window.setTimeout(later, wait);
     };
+  };
 
+  const handleScroll = useCallback(
+    debounce(() => {
+      setIsScrolled(window.scrollY > 0);
+    }, 10),
+    []
+  );
+
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -147,7 +162,7 @@ const Layout: React.FC<LayoutProps> = ({ children, fullHeight = false }) => {
       </nav>
 
       {/* Main Content */}
-      <main className="flex-grow pt-16">
+      <main className={`flex-grow ${fullHeight ? 'h-full' : ''}`}>
         {children}
       </main>
 

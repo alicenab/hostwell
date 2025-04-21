@@ -8,9 +8,13 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   base: '/hostwell/',
+  server: {
+    open: true
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    copyPublicDir: true,
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
