@@ -6,17 +6,32 @@ export interface Region {
   image: string;
 }
 
+export interface AvailableHome {
+  id: string;
+  type: string;
+  description: string;
+  price: number;
+  maxGuests: number;
+  bedrooms: number;
+  bathrooms: number;
+  amenities: string[];
+  images: string[];
+}
+
 export interface Host {
   id: string;
   name: string;
+  image: string;
+  location: string;
+  bio: string;
   email: string;
   phone: string;
-  bio: string;
   regionId: string;
-  accommodationType: string;
-  price: number;
-  availability: string[];
-  image: string;
+  rating: number;
+  reviews: number;
+  availableFrom: string;
+  availableTo: string;
+  availableHomes: AvailableHome[];
 }
 
 export interface Recommendation {

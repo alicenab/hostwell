@@ -17,7 +17,11 @@ export const hosts: Host[] = [
         type: '2-bedroom cottage',
         price: 65,
         description: 'A cozy cottage with traditional Azerbaijani decor, perfect for families or small groups.',
-        images: ['https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg'],
+        images: [
+          'https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg',
+          'https://images.pexels.com/photos/2098479/pexels-photo-2098479.jpeg',
+          'https://images.pexels.com/photos/2098405/pexels-photo-2098405.jpeg'
+        ],
         amenities: ['Wi-Fi', 'Kitchen', 'Garden', 'Parking'],
         maxGuests: 4,
         bedrooms: 2,
@@ -28,7 +32,11 @@ export const hosts: Host[] = [
         type: '1-bedroom apartment',
         price: 45,
         description: 'Modern apartment in the heart of Sheki, close to all major attractions.',
-        images: ['https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg'],
+        images: [
+          'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg',
+          'https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg',
+          'https://images.pexels.com/photos/1571467/pexels-photo-1571467.jpeg'
+        ],
         amenities: ['Wi-Fi', 'Kitchen', 'Air Conditioning', 'TV'],
         maxGuests: 2,
         bedrooms: 1,
@@ -37,7 +45,7 @@ export const hosts: Host[] = [
     ],
     rating: 4.9,
     reviews: 24,
-    image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg'
+    image: 'https://images.pexels.com/photos/5792641/pexels-photo-5792641.jpeg'
   },
   {
     id: '2',
@@ -55,7 +63,11 @@ export const hosts: Host[] = [
         type: '1-bedroom house',
         price: 45,
         description: 'Traditional house with a beautiful garden, perfect for experiencing local culture.',
-        images: ['https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg'],
+        images: [
+          'https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg',
+          'https://images.pexels.com/photos/2079249/pexels-photo-2079249.jpeg',
+          'https://images.pexels.com/photos/2079246/pexels-photo-2079246.jpeg'
+        ],
         amenities: ['Wi-Fi', 'Kitchen', 'Garden', 'Tea House'],
         maxGuests: 2,
         bedrooms: 1,
@@ -64,7 +76,7 @@ export const hosts: Host[] = [
     ],
     rating: 4.8,
     reviews: 18,
-    image: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg'
+    image: 'https://images.pexels.com/photos/5792632/pexels-photo-5792632.jpeg'
   },
   {
     id: '3',
@@ -82,7 +94,11 @@ export const hosts: Host[] = [
         type: 'Guest house',
         price: 55,
         description: 'Family-run guest house with mountain views and traditional hospitality.',
-        images: ['https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg'],
+        images: [
+          'https://images.pexels.com/photos/2480608/pexels-photo-2480608.jpeg',
+          'https://images.pexels.com/photos/2480605/pexels-photo-2480605.jpeg',
+          'https://images.pexels.com/photos/2480607/pexels-photo-2480607.jpeg'
+        ],
         amenities: ['Wi-Fi', 'Kitchen', 'Mountain View', 'Breakfast'],
         maxGuests: 6,
         bedrooms: 3,
@@ -91,7 +107,7 @@ export const hosts: Host[] = [
     ],
     rating: 4.9,
     reviews: 32,
-    image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg'
+    image: 'https://images.pexels.com/photos/5792635/pexels-photo-5792635.jpeg'
   },
   {
     id: '4',
@@ -109,7 +125,11 @@ export const hosts: Host[] = [
         type: 'Modern apartment',
         price: 85,
         description: 'Stylish apartment in the heart of Baku, close to major attractions and nightlife.',
-        images: ['https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg'],
+        images: [
+          'https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg',
+          'https://images.pexels.com/photos/1643385/pexels-photo-1643385.jpeg',
+          'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg'
+        ],
         amenities: ['Wi-Fi', 'Kitchen', 'Gym', 'Pool'],
         maxGuests: 4,
         bedrooms: 2,
@@ -118,7 +138,7 @@ export const hosts: Host[] = [
     ],
     rating: 4.7,
     reviews: 28,
-    image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg'
+    image: 'https://images.pexels.com/photos/5792638/pexels-photo-5792638.jpeg'
   },
   {
     id: '5',
@@ -136,7 +156,11 @@ export const hosts: Host[] = [
         type: 'Traditional house',
         price: 70,
         description: 'Beautifully restored traditional house with modern comforts.',
-        images: ['https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg'],
+        images: [
+          'https://images.pexels.com/photos/2119713/pexels-photo-2119713.jpeg',
+          'https://images.pexels.com/photos/2119714/pexels-photo-2119714.jpeg',
+          'https://images.pexels.com/photos/2119715/pexels-photo-2119715.jpeg'
+        ],
         amenities: ['Wi-Fi', 'Kitchen', 'Garden', 'Historical Features'],
         maxGuests: 5,
         bedrooms: 2,
@@ -145,6 +169,6 @@ export const hosts: Host[] = [
     ],
     rating: 4.8,
     reviews: 21,
-    image: 'https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg'
+    image: 'https://images.pexels.com/photos/5792643/pexels-photo-5792643.jpeg'
   }
 ];
