@@ -99,21 +99,41 @@ const HostForm: React.FC = () => {
           
           {/* Progress Steps */}
           <div className="flex justify-between mb-8 relative">
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2 z-0"></div>
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2 z-0">
+              <motion.div
+                className="h-full bg-primary-500"
+                initial={{ width: '0%' }}
+                animate={{ width: `${(step - 1) * 50}%` }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+              />
+            </div>
             
             {[1, 2, 3].map((i) => (
-              <div key={i} className="relative z-10 flex flex-col items-center">
-                <div 
+              <motion.div
+                key={i}
+                className="relative z-10 flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <motion.div 
                   className={`w-8 h-8 rounded-full flex items-center justify-center ${
                     step >= i ? 'bg-primary-500 text-white' : 'bg-gray-200 text-gray-500'
                   }`}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {i}
-                </div>
-                <span className="text-xs mt-1 font-medium">
+                </motion.div>
+                <motion.span 
+                  className="text-xs mt-1 font-medium"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
                   {i === 1 ? 'Personal Info' : i === 2 ? 'Accommodation' : 'Education'}
-                </span>
-              </div>
+                </motion.span>
+              </motion.div>
             ))}
           </div>
           
@@ -124,10 +144,14 @@ const HostForm: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
                 className="space-y-4"
               >
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
                   <label htmlFor="name" className="label">Full Name</label>
                   <div className="relative">
                     <User className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -137,14 +161,18 @@ const HostForm: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="input pl-10"
+                      className="input pl-10 transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       placeholder="John Doe"
                       required
                     />
                   </div>
-                </div>
+                </motion.div>
                 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
                   <label htmlFor="email" className="label">Email Address</label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -154,14 +182,18 @@ const HostForm: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="input pl-10"
+                      className="input pl-10 transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       placeholder="john@example.com"
                       required
                     />
                   </div>
-                </div>
+                </motion.div>
                 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
                   <label htmlFor="phone" className="label">Phone Number</label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -171,25 +203,29 @@ const HostForm: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="input pl-10"
+                      className="input pl-10 transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       placeholder="+994 50 123 4567"
                       required
                     />
                   </div>
-                </div>
+                </motion.div>
                 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
                   <label htmlFor="bio" className="label">Bio</label>
                   <textarea
                     id="bio"
                     name="bio"
                     value={formData.bio}
                     onChange={handleChange}
-                    className="input h-32 resize-none"
+                    className="input h-32 resize-none transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     placeholder="Tell guests a bit about yourself, your background, and why you enjoy hosting..."
                     required
                   ></textarea>
-                </div>
+                </motion.div>
               </motion.div>
             )}
             
@@ -199,10 +235,14 @@ const HostForm: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
                 className="space-y-4"
               >
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
                   <label htmlFor="region" className="label">Region</label>
                   <div className="relative">
                     <MapPin className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -211,7 +251,7 @@ const HostForm: React.FC = () => {
                       name="region"
                       value={formData.region}
                       onChange={handleChange}
-                      className="input pl-10 appearance-none"
+                      className="input pl-10 appearance-none transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       required
                     >
                       <option value="" disabled>Select a region</option>
@@ -231,9 +271,13 @@ const HostForm: React.FC = () => {
                       </svg>
                     </div>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
                   <label htmlFor="accommodationType" className="label">Accommodation Type</label>
                   <div className="relative">
                     <Home className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -242,7 +286,7 @@ const HostForm: React.FC = () => {
                       name="accommodationType"
                       value={formData.accommodationType}
                       onChange={handleChange}
-                      className="input pl-10 appearance-none"
+                      className="input pl-10 appearance-none transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       required
                     >
                       <option value="" disabled>Select a type</option>
@@ -262,9 +306,13 @@ const HostForm: React.FC = () => {
                       </svg>
                     </div>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
                   <label htmlFor="price" className="label">Price per Night (USD)</label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -274,15 +322,19 @@ const HostForm: React.FC = () => {
                       name="price"
                       value={formData.price}
                       onChange={handleChange}
-                      className="input pl-10"
+                      className="input pl-10 transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       placeholder="65"
                       min="10"
                       required
                     />
                   </div>
-                </div>
+                </motion.div>
                 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
                   <label htmlFor="availability" className="label">Initial Availability</label>
                   <div className="relative">
                     <Calendar className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
@@ -292,14 +344,14 @@ const HostForm: React.FC = () => {
                       name="availability"
                       value={formData.availability}
                       onChange={handleChange}
-                      className="input pl-10"
+                      className="input pl-10 transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       required
                     />
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
                     You'll be able to set more available dates after registration.
                   </p>
-                </div>
+                </motion.div>
               </motion.div>
             )}
             
@@ -309,10 +361,14 @@ const HostForm: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
                 className="space-y-4"
               >
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
                   <label htmlFor="university" className="label">US University/College</label>
                   <div className="relative">
                     <svg
@@ -334,7 +390,7 @@ const HostForm: React.FC = () => {
                       name="university"
                       value={formData.university}
                       onChange={handleChange}
-                      className="input pl-10 appearance-none"
+                      className="input pl-10 appearance-none transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                       required
                     >
                       <option value="" disabled>Select a university</option>
@@ -354,9 +410,13 @@ const HostForm: React.FC = () => {
                       </svg>
                     </div>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
                   <label htmlFor="graduationYear" className="label">Graduation Year</label>
                   <input
                     type="number"
@@ -364,15 +424,20 @@ const HostForm: React.FC = () => {
                     name="graduationYear"
                     value={formData.graduationYear}
                     onChange={handleChange}
-                    className="input"
+                    className="input transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     placeholder="2018"
                     min="1950"
                     max={new Date().getFullYear()}
                     required
                   />
-                </div>
+                </motion.div>
                 
-                <div className="p-4 bg-primary-50 border border-primary-200 rounded-lg">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="p-4 bg-primary-50 border border-primary-200 rounded-lg"
+                >
                   <h4 className="text-sm font-semibold text-primary-700 mb-2">
                     Verification Required
                   </h4>
@@ -384,43 +449,57 @@ const HostForm: React.FC = () => {
                     <li>Government-issued ID</li>
                     <li>Proof of Azerbaijan citizenship</li>
                   </ul>
-                </div>
+                </motion.div>
                 
-                <div className="pt-2">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="pt-2"
+                >
                   <label className="flex items-start">
                     <input
                       type="checkbox"
-                      className="mt-1 h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 rounded"
+                      className="mt-1 h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 rounded transition-all duration-200"
                       required
                     />
                     <span className="ml-2 text-sm text-gray-600">
                       I confirm that I am a US-educated Azerbaijani alumnus and all information provided is accurate. I agree to the <a href="#" className="text-primary-500 hover:underline">Terms of Service</a> and <a href="#" className="text-primary-500 hover:underline">Host Agreement</a>.
                     </span>
                   </label>
-                </div>
+                </motion.div>
               </motion.div>
             )}
             
-            <div className="flex justify-between mt-8">
+            <motion.div 
+              className="flex justify-between mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
               {step > 1 ? (
-                <button
+                <motion.button
                   type="button"
                   onClick={handleBack}
                   className="btn btn-outline"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   Back
-                </button>
+                </motion.button>
               ) : (
                 <div></div>
               )}
               
-              <button
+              <motion.button
                 type="submit"
                 className="btn btn-primary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {step < 3 ? 'Continue' : 'Submit Application'}
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </form>
         </>
       )}

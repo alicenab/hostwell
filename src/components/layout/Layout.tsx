@@ -80,7 +80,6 @@ const Layout: React.FC<LayoutProps> = ({ children, fullHeight = false }) => {
                 to="/login"
                 className="btn btn-primary btn-sm"
               >
-                <LogIn className="w-4 h-4 mr-2" />
                 Login
               </Link>
             </div>
@@ -140,7 +139,6 @@ const Layout: React.FC<LayoutProps> = ({ children, fullHeight = false }) => {
                 className="btn btn-primary btn-sm w-full"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <LogIn className="w-4 h-4 mr-2" />
                 Login
               </Link>
             </div>
