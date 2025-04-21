@@ -35,7 +35,7 @@ const RegionalRecommendations: React.FC<RegionalRecommendationsProps> = ({
     <div className="space-y-8">
       <h2 className="text-2xl font-heading font-semibold">Local Recommendations</h2>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {typeOrder.map((type) => {
           const recommendations = groupedRecommendations[type] || [];
           if (recommendations.length === 0) return null;
