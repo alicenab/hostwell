@@ -12,7 +12,7 @@ import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/hostwell">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/guest" element={<GuestPage />} />
