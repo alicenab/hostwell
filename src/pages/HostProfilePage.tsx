@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Home, MapPin, Star, MessageCircle, Users, Bed, Bath } from 'lucide-react';
 import Layout from '../components/layout/Layout';
@@ -13,6 +13,7 @@ import { recommendations } from '../data/recommendations';
 const HostProfilePage: React.FC = () => {
   const { hostId } = useParams<{ hostId: string }>();
   const [selectedHome, setSelectedHome] = useState<string | null>(null);
+  const bookingSectionRef = useRef<HTMLDivElement>(null);
   
   // Find host information
   const host = hosts.find(h => h.id === hostId);
@@ -68,6 +69,14 @@ const HostProfilePage: React.FC = () => {
   };
 
   const availability = getAvailabilityStatus();
+
+  const handleBookNowClick = (homeId: string) => {
+    setSelectedHome(homeId);
+    // Wait for state update and DOM render
+    setTimeout(() => {
+      bookingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
 
   return (
     <Layout>
@@ -174,7 +183,7 @@ const HostProfilePage: React.FC = () => {
                             </div>
                             
                             <button
-                              onClick={() => setSelectedHome(home.id)}
+                              onClick={() => handleBookNowClick(home.id)}
                               className="btn btn-primary w-full transition-transform hover:scale-[1.02] active:scale-[0.98]"
                             >
                               Book Now
@@ -188,10 +197,15 @@ const HostProfilePage: React.FC = () => {
               </div>
             </div>
             
-            {/* Right Column - Contact & Payment */}
+            {/* Right Column - Payment & Contact */}
             <div className="space-y-6">
+              {/* Book Your Stay Section */}
+              <div ref={bookingSectionRef}>
+                {selectedHome && <PaymentSection hostId={host.id} homeId={selectedHome} />}
+              </div>
+              
+              {/* Contact Form */}
               <ContactForm hostId={host.id} />
-              {selectedHome && <PaymentSection hostId={host.id} homeId={selectedHome} />}
             </div>
           </div>
           
